@@ -69,7 +69,10 @@ function Login() {
           </p>
         </form>
 
-        <SignInwithGoogle />
+
+        {/* ======== Cors issues frm firebase with popup ======= */}
+        {/* <SignInwithGoogle /> */}
+        
       </main>
 
     </section>

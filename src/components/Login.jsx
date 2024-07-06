@@ -61,8 +61,8 @@ function Login() {
             Submit
           </button>
 
-          <p className="text-center text-sm mt-3">
-            New user{" "}
+          <p className="text-center text-sm mt-5">
+            New user?{" "}
             <span onClick={() => navigate('/register')} className="text-blue-500">
               Register Here
             </span>

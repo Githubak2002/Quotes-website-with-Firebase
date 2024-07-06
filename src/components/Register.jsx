@@ -84,12 +84,14 @@ function Register() {
             Submit
           </button>
 
-          <p className="text-center text-sm mt-3">
-            Already registered{" "}
-            <a href="/login" className="text-blue-500">
+
+          <p className="text-center text-sm mt-5">
+            Already registered?{" "}
+            <span onClick={() => navigate('/login')} className="text-blue-500">
               Login
-            </a>
+            </span>
           </p>
+
         </form>
       </main>
 

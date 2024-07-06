@@ -9,8 +9,8 @@ import toast from "react-hot-toast";
 
 function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("tmp@gmail.com");
+  const [password, setPassword] = useState("123456");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ function Login() {
   };
 
   return (
-    <section className="mx-auto px-4 flexCenter">
+    <section className="mx-auto px-4 flexCenter flex-col gap-12">
       <main className="sm:min-w-[420px] min-w-full shadow-2xl py-6 px-10 border mt-[10vh] rounded-2xl font-bold">
         <form onSubmit={handleSubmit}>
           <h3 className="text-center text-2xl pb-5 text-blue-400">Login</h3>
@@ -73,7 +73,17 @@ function Login() {
         {/* ======== Cors issues frm firebase with popup ======= */}
         {/* <SignInwithGoogle /> */}
 
+
       </main>
+
+        <div className="text-sm  text-[#9f9f9f] flex flex-col gap-2">
+          <h2>
+            Email → tmp@gmail.com
+          </h2>
+          <h2>
+            Pasword → 123456
+          </h2>
+        </div>
 
     </section>
   );

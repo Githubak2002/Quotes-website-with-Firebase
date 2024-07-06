@@ -62,17 +62,17 @@ function Login() {
           </button>
 
           <p className="text-center text-sm mt-3">
-            New user
-            <a href="/register" className="text-blue-500">
+            New user{" "}
+            <span onClick={() => navigate('/register')} className="text-blue-500">
               Register Here
-            </a>
+            </span>
           </p>
         </form>
 
 
         {/* ======== Cors issues frm firebase with popup ======= */}
         {/* <SignInwithGoogle /> */}
-        
+
       </main>
 
     </section>

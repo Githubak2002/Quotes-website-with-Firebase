@@ -29,11 +29,11 @@ function Register() {
         });
       }
       // console.log("User Registered Successfully!!");
-      toast.success("User Registered Successfully!!");
+      toast.success("User Registered Successfully!!",{position: "bottom-center"});
       navigate("/profile");
     } catch (error) {
       console.log("err in handleRegister fun → ", error.message);
-      toast.error(error.message);
+      toast.error(error.message,{position: "bottom-center"});
     }
   };
 

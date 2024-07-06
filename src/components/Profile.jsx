@@ -40,7 +40,7 @@ function Profile() {
         await updateDoc(userDocRef, {
           favQuotes: arrayRemove(quote),
         });
-        toast.success("Quote removed from favorites!");
+        toast.success("Quote removed from favorites!",{position: "bottom-center"});
         fetchUserData(); // Refresh user data
       } else {
         console.log("User is not logged in");
@@ -48,7 +48,7 @@ function Profile() {
       }
     } catch (err) {
       console.error("Error in removeFav:", err);
-      toast.error("Failed to remove quote from favorites");
+      toast.error("Failed to remove quote from favorites",{position: "bottom-center"});
     }
   };
 

@@ -28,10 +28,10 @@ const Navbar = () => {
       await auth.signOut();
       setUser(null);
       navigate("/");
-      toast.success("Logged out successfully!");
+        toast.success("Logged out successfully!",{position: "bottom-center"});
     } catch (error) {
       console.error("Error logging out:", error.message);
-      toast.error("Error logging out. Please try again.");
+      toast.error("Error logging out. Please try again.",{position: "bottom-center"});
     }
   }
 

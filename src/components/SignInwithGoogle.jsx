@@ -29,12 +29,12 @@ function SignInwithGoogle() {
           });
         }
 
-        toast.success("User logged in Successfully");
+        toast.success("User logged in Successfully",{position: "bottom-center"});
         navigate('/profile');
       }
     } catch (error) {
       console.error("Error during Google sign-in:", error);
-      toast.error("Failed to sign in with Google. Please try again.");
+      toast.error("Failed to sign in with Google. Please try again.",{position: "bottom-center"});
     }
   }
 

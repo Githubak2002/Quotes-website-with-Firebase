@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import SignInwithGoogle from "./SignInwithGoogle.jsx";
 
 import toast from "react-hot-toast";
-import { Toaster } from 'react-hot-toast';
 
 
 function Login() {
@@ -17,13 +16,13 @@ function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("User logged in Successfully");
-      toast.success("User logged in Successfully");
+      // console.log("User logged in Successfully");
+      toast.success("User logged in Successfully",{position: "bottom-center"});
       navigate("/profile");
       // window.location.href = "/profile";
     } catch (error) {
       console.log(error.message);
-      toast.error(error.message);
+      toast.error(error.message,{position: "bottom-center"});
     }
   };
 
@@ -73,7 +72,6 @@ function Login() {
         <SignInwithGoogle />
       </main>
 
-      <Toaster />
     </section>
   );
 }

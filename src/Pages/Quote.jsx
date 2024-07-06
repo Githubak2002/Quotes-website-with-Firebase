@@ -2,8 +2,8 @@ import { auth, db } from "../components/firebase.js";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const btnCSS =
@@ -41,15 +41,15 @@ const QuotePg = () => {
         await updateDoc(userDocRef, {
           favQuotes: arrayUnion(quote)
         });
-        toast.success("Quote added to favorites!");
+        toast('💖 Quote added to favorites!',{position: "bottom-center"} );
       } else {
         console.log("User is not logged in");
-        toast.error("Please Login first!");
+        toast.error("Please Login first!",{position: "bottom-center"});
         navigate('/login');
       }
     } catch (error) {
       console.error("Error updating document:", error);
-      toast.error("Failed to add quote to favorites");
+      toast.error("Failed to add quote to favorites",{position: "bottom-center"});
     }
   };
 

@@ -61,7 +61,7 @@ const QuotePg = () => {
       {loading ? (
         <h2 className="min-h-[15vh] mt-[15vh]">Loading...</h2>
       ) : (
-        <p className="text-md leading-10 min-h-[30vh] text-center text-xl">
+        <p className="text-md leading-10 min-h-[30vh] text-center sm:text-xl text-base">
           {quote}
         </p>
       )}

@@ -73,7 +73,7 @@ function Profile() {
           </div>
 
           {userDetails.favQuotes && userDetails.favQuotes.length > 0 && (
-            <div className="border-t-[1px] border-black px-2 text-center mt-3">
+            <main className="border-t-[1px] border-black px-2 text-center mt-3 sm:min-w-[620px] min-w-full">
               <h2 className="py-4 font-semibold text-xl">
                 All Your 💖 Favorite Quotes
               </h2>
@@ -93,7 +93,7 @@ function Profile() {
                   </div>
                 ))}
               </div>
-            </div>
+            </main>
           )}
         </>
       ) : (

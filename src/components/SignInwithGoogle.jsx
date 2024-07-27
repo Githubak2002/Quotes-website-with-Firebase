@@ -15,6 +15,7 @@ function SignInwithGoogle() {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      // console.log("user: ",user);
 
       if (user) {
         const userDocRef = doc(db, "Users", user.uid);

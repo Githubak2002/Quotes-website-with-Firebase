@@ -71,7 +71,7 @@ function Login() {
 
 
         {/* ======== Cors issues frm firebase with popup ======= */}
-        {/* <SignInwithGoogle /> */}
+        <SignInwithGoogle />
 
 
       </main>

@@ -1,4 +1,4 @@
-import { auth } from "../services/firebase";
+import { auth, db } from "../services/firebase";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from "axios";
 import { useEffect, useState } from "react";

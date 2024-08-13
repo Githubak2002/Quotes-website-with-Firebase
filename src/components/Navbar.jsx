@@ -4,7 +4,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 
 import toast from "react-hot-toast";
 
-const navLinkCss = "sm:hover:scale-110 hover:transition-all hover:font-bold";
+const navLinkCss = "lg:hover:scale-110 transition-all lg:hover:font-bold";
 
 const Navbar = () => {
   const navigate = useNavigate();

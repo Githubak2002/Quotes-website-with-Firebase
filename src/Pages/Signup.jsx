@@ -14,7 +14,7 @@ function SignUp() {
   const [name, setName] = useState("");
   const quotes = [];
 
-  const handleRegister = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
@@ -33,7 +33,7 @@ function SignUp() {
       toast.success("User Registered Successfully!!",{position: "bottom-center"});
       navigate("/profile");
     } catch (error) {
-      console.log("err in handleRegister fun → ", error.message);
+      console.log("err in handleSignUp fun → ", error.message);
       toast.error(error.message,{position: "bottom-center"});
     }
   };
@@ -42,7 +42,7 @@ function SignUp() {
   return (
     <section className="mx-auto px-4 flexCenter">
       <main className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[10vh] rounded-xl font-bold text-sm">
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleSignUp}>
           <h3 className="text-center text-2xl pb-5 font-semibold text-blue-400">Sign up</h3>
 
           <div className="flex flex-col gap-y-3">
@@ -82,7 +82,7 @@ function SignUp() {
             type="submit"
             className="border border-black bg-blue-400 rounded-lg p-2 mt-4 mx-auto w-full"
           >
-            Submit
+            Sign Up
           </button>
 
 

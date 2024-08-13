@@ -1,11 +1,11 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth, db } from "./firebase.js";
+import { auth, db } from "../services/firebase.js"
 import { setDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
-import SignInwithGoogle from "./SignInwithGoogle.jsx";
+import SignInwithGoogle from "../components/SignInwithGoogle.jsx";
 
 function SignUp() {
   const navigate = useNavigate();

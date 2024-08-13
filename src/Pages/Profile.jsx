@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { auth, db } from "./firebase";
+import { auth, db } from "../services/firebase.js";
 import { arrayRemove, doc, getDoc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";

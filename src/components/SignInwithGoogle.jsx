@@ -1,7 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, db } from "./firebase";
+import { auth, db } from "../services/firebase";
 import { setDoc, doc, getDoc } from "firebase/firestore";
-import img1 from "/google.png";
 import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
@@ -64,7 +63,6 @@ function SignInwithGoogle() {
 
   return (
     <main className="w-full">
-
       <div class="relative flexCenter py-6">
         <span class="absolute px-2 bg-white text-gray-700 z-50">OR</span>
         <div class="absolute inset-x-0 border-t border-gray-400 border-1"></div>
@@ -72,7 +70,10 @@ function SignInwithGoogle() {
 
       {/* <p className="text-center font-thin py-3">--Or continue with--</p> */}
 
-      <div className="flexCenter cursor-pointer border border-slate-300 p-2 mb-3 rounded-lg" onClick={googleLogin}>
+      <div
+        className="flexCenter cursor-pointer border border-slate-300 p-2 mb-3 rounded-lg"
+        onClick={googleLogin}
+      >
         <div className="w-full flexCenter text-xs">
           <svg
             version="1.1"
@@ -99,13 +100,9 @@ function SignInwithGoogle() {
               ></path>
               <path fill="none" d="M0 0h48v48H0z"></path>
             </g>
-          </svg> 
-          
-          <h2>
-            Continue with Google
-          </h2>
+          </svg>
 
-          {/* <img src={img1} alt="google_img"  /> */}
+          <h2>Continue with Google</h2>
         </div>
       </div>
     </main>

@@ -1,11 +1,10 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "./firebase";
+import { auth } from "../services/firebase.js";
 import { useNavigate } from "react-router-dom";
-import SignInwithGoogle from "./SignInwithGoogle.jsx";
+import SignInwithGoogle from "../components/SignInwithGoogle.jsx";
 
 import toast from "react-hot-toast";
-
 
 function Login() {
   const navigate = useNavigate();
@@ -19,12 +18,14 @@ function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // console.log("User logged in Successfully");
-      toast.success("User logged in Successfully",{position: "bottom-center"});
+      toast.success("User logged in Successfully", {
+        position: "bottom-center",
+      });
       navigate("/profile");
       // window.location.href = "/profile";
     } catch (error) {
       console.log(error.message);
-      toast.error(error.message,{position: "bottom-center"});
+      toast.error(error.message, { position: "bottom-center" });
     }
   };
 
@@ -32,7 +33,9 @@ function Login() {
     <section className="mx-auto px-4 flexCenter flex-col gap-6">
       <main className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[10vh] rounded-xl font-bold text-sm">
         <form onSubmit={handleSubmit}>
-          <h3 className="text-center text-2xl pb-5 font-semibold text-blue-400">Login</h3>
+          <h3 className="text-center text-2xl pb-5 font-semibold text-blue-400">
+            Login
+          </h3>
 
           <div className="flex flex-col gap-y-3">
             {/* <label className="text-sm font-extrabold">Email address</label> */}
@@ -65,28 +68,22 @@ function Login() {
 
           <p className="text-center text-sm mt-5">
             Don't have an account?{" "}
-            <span onClick={() => navigate('/signup')} className="text-blue-500 cursor-pointer">
+            <span
+              onClick={() => navigate("/signup")}
+              className="text-blue-500 cursor-pointer"
+            >
               Sign Up
             </span>
           </p>
         </form>
 
-
-
         <SignInwithGoogle />
-
-
       </main>
 
-        <div className="text-sm text-[#9f9f9f] flex flex-col gap-2">
-          <h2>
-            Email → tmp@gmail.com
-          </h2>
-          <h2>
-            Pasword → 123456
-          </h2>
-        </div>
-
+      <div className="text-sm text-[#9f9f9f] flex flex-col gap-2">
+        <h2>Email → tmp@gmail.com</h2>
+        <h2>Pasword → 123456</h2>
+      </div>
     </section>
   );
 }

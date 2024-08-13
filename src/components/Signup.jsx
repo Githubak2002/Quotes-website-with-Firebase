@@ -5,8 +5,9 @@ import { setDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
+import SignInwithGoogle from "./SignInwithGoogle.jsx";
 
-function Register() {
+function SignUp() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,38 +41,38 @@ function Register() {
 
   return (
     <section className="mx-auto px-4 flexCenter">
-      <main className="sm:min-w-[420px] min-w-full shadow-2xl py-6 px-10 border mt-[10vh] rounded-2xl font-bold">
+      <main className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[10vh] rounded-xl font-bold text-sm">
         <form onSubmit={handleRegister}>
-          <h3 className="text-center text-2xl pb-5 text-blue-400">Sign up</h3>
+          <h3 className="text-center text-2xl pb-5 font-semibold text-blue-400">Sign up</h3>
 
           <div className="flex flex-col gap-y-3">
-            <label className="text-sm font-extrabold">Full Name</label>
+            {/* <label className="text-sm font-extrabold">Full Name</label> */}
             <input
               type="text"
-              className="border p-2 rounded-lg"
+              className="border p-2 rounded-lg h-9  "
               placeholder="Full Name"
               onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
 
-          <div className="flex flex-col gap-y-3 mt-4">
-            <label className="text-sm font-extrabold">Email address</label>
+          <div className="flex flex-col gap-y-3 mt-4 h-9">
+            {/* <label className="text-sm font-extrabold">Email address</label> */}
             <input
               type="email"
-              className="border p-2 rounded-lg"
-              placeholder="Enter email"
+              className="border-[0.1px] p-2 rounded-lg focus:border-black"
+              placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
 
           <div className="flex flex-col gap-y-3 mt-4">
-            <label className="text-sm font-extrabold">Password</label>
+            {/* <label className="text-sm font-extrabold">Password</label> */}
             <input
               type="password"
               className="border p-2 rounded-lg"
-              placeholder="Enter password"
+              placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               required
             />
@@ -87,10 +88,13 @@ function Register() {
 
           <p className="text-center text-sm mt-5">
             Already registered?{" "}
-            <span onClick={() => navigate('/login')} className="text-blue-500">
+            <span onClick={() => navigate('/login')} className="text-blue-500 hover:cursor-pointer
+            ">
               Login
             </span>
           </p>
+
+          <SignInwithGoogle />
 
         </form>
       </main>
@@ -98,4 +102,4 @@ function Register() {
     </section>
   );
 }
-export default Register;
+export default SignUp;

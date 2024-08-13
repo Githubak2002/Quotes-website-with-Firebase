@@ -11,6 +11,8 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("tmp@gmail.com");
   const [password, setPassword] = useState("123456");
+  // const [email, setEmail] = useState("tmp@gmail.com");
+  // const [password, setPassword] = useState("123456");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,15 +30,15 @@ function Login() {
 
   return (
     <section className="mx-auto px-4 flexCenter flex-col gap-6">
-      <main className="sm:min-w-[420px] min-w-full shadow-2xl py-3 px-10 border mt-[6vh] rounded-2xl font-bold">
+      <main className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[10vh] rounded-xl font-bold text-sm">
         <form onSubmit={handleSubmit}>
-          <h3 className="text-center text-2xl pb-5 text-blue-400">Login</h3>
+          <h3 className="text-center text-2xl pb-5 font-semibold text-blue-400">Login</h3>
 
           <div className="flex flex-col gap-y-3">
-            <label className="text-sm font-extrabold">Email address</label>
+            {/* <label className="text-sm font-extrabold">Email address</label> */}
             <input
               type="email"
-              className="border p-2 rounded-lg"
+              className="border p-2 rounded-lg h-9"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -44,10 +46,10 @@ function Login() {
           </div>
 
           <div className="flex flex-col gap-y-3 mt-4">
-            <label className="text-sm font-extrabold">Password</label>
+            {/* <label className="text-sm font-extrabold">Password</label> */}
             <input
               type="password"
-              className="border p-2"
+              className="border p-2 rounded-lg h-9"
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -58,19 +60,19 @@ function Login() {
             type="submit"
             className="border border-black bg-blue-400 rounded-lg p-2 mt-4 mx-auto w-full"
           >
-            Submit
+            Continue
           </button>
 
           <p className="text-center text-sm mt-5">
-            New user?{" "}
-            <span onClick={() => navigate('/register')} className="text-blue-500">
-              Register Here
+            Don't have an account?{" "}
+            <span onClick={() => navigate('/signup')} className="text-blue-500 cursor-pointer">
+              Sign Up
             </span>
           </p>
         </form>
 
 
-        {/* ======== Cors issues frm firebase with popup ======= */}
+
         <SignInwithGoogle />
 
 

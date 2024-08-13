@@ -42,30 +42,11 @@ function SignInwithGoogle() {
     }
   }
 
-  // function googleLogin() {
-  //   const provider = new GoogleAuthProvider();
-  //   signInWithPopup(auth, provider).then(async (result) => {
-  //     // console.log(result);
-  //     const user = result.user;
-  //     if (result.user) {
-  //       await setDoc(doc(db, "Users", user.uid), {
-  //         email: user.email,
-  //         Name: user.displayName,
-  //         photo: user.photoURL,
-  //         favQuotes:quotes,
-  //       });
-  //       toast.success("User logged in Successfully");
-  //       navigate('/profile');
-  //       // window.location.href = "/profile";
-  //     }
-  //   });
-  // }
-
   return (
     <main className="w-full">
-      <div class="relative flexCenter py-6">
-        <span class="absolute px-2 bg-white text-gray-700 z-50">OR</span>
-        <div class="absolute inset-x-0 border-t border-gray-400 border-1"></div>
+      <div className="relative flexCenter py-6">
+        <span className="absolute px-2 bg-white text-gray-700 z-10 text-xs">OR CONTINUE WITH</span>
+        <div className="absolute inset-x-0 border-t border-gray-400 border-1"></div>
       </div>
 
       {/* <p className="text-center font-thin py-3">--Or continue with--</p> */}
@@ -79,7 +60,7 @@ function SignInwithGoogle() {
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"
-            class="LgbsSe-Bz112c w-5 mr-2"
+            className="LgbsSe-Bz112c w-5 mr-2"
           >
             <g>
               <path
@@ -108,4 +89,5 @@ function SignInwithGoogle() {
     </main>
   );
 }
+
 export default SignInwithGoogle;

@@ -14,6 +14,7 @@ import Profile from "./Pages/Profile";
 import Quote from "./Pages/Quote";
 import SignUp from "./Pages/Signup";
 import PageNotFound from "./components/PageNotFoud";
+import ForgetPass from "./Pages/ForgetPass";
 
 function App() {
   const [user, setUser] = useState();
@@ -35,6 +36,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/reset-password" element={<ForgetPass />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>

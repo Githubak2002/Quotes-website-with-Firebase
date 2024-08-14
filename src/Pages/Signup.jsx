@@ -28,11 +28,11 @@ function SignUp() {
           favQuotes: quotes,
           photo: "",
         });
-        toast.success("User Registered Successfully!!", { position: "bottom-center" });
+        toast.success("User Registered Successfully!!", { position: "bottom-center", className: "text-xs" });
         navigate("/profile");
       }
     } catch (error) {
-      toast.error(error.message, { position: "bottom-center" });
+      toast.error(error.message, { position: "bottom-center", className: "text-xs" });
       console.error("Error in handleSignUp:", error.message);
     } finally {
       setLoading(false); // Reset loading to false once the process is complete

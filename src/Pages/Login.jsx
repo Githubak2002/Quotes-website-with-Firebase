@@ -19,11 +19,13 @@ function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("User logged in successfully", {
         position: "bottom-center",
+        className: "text-xs"
       });
       navigate("/profile");
     } catch (error) {
-      toast.error(error.message, { position: "bottom-center" });
-      console.error("Login error:", error.message);
+      toast.error(error.message, { position: "bottom-center", className: "text-xs" });
+      // console.error("Login error:", error.message);
+      // console.error("Login error:", error);
     } finally {
       setLoading(false);
     }

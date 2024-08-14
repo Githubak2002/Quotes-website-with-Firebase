@@ -25,15 +25,20 @@ const ForgetPass = () => {
   const [emailForPassReset, setEmailForPassReset] = useState("");
   const [loading, setLoading] = useState(false);
 
+  /** === Email exists? ===
   const handleForgetPass = async (e) => {
     e.preventDefault();
 
     setLoading(true);
     try {
+
+      const email = emailForPassReset.trim();
+
       const signInMethods = await fetchSignInMethodsForEmail(
         auth,
-        emailForPassReset
+        email
       );
+      console.log(signInMethods);
       if (signInMethods.length === 0) {
         toast.error("Email does not exist. Please sign up.", {
           position: "bottom-center",
@@ -56,6 +61,29 @@ const ForgetPass = () => {
       setLoading(false);
     }
   };
+  */
+
+
+  const handleForgetPass = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    try {
+      await sendPasswordResetEmail(auth, emailForPassReset);
+      toast.success("Password reset email sent", {
+        position: "bottom-center",
+      });
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.message, { position: "bottom-center" });
+      console.error("Error sending password reset email - ", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
 
   return (
     <section className="mx-auto px-4 flexCenter">

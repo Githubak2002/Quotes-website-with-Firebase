@@ -1,7 +1,22 @@
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import {
+  fetchSignInMethodsForEmail,
+  getAuth,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+
+import { db } from "../services/firebase.js";
+import {
+  collection,
+  getDoc,
+  getFirestore,
+  limit,
+  query,
+  where,
+} from "firebase/firestore";
+import SignInwithGoogle from "../components/SignInwithGoogle.jsx";
 
 const ForgetPass = () => {
   const auth = getAuth();
@@ -12,14 +27,27 @@ const ForgetPass = () => {
 
   const handleForgetPass = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
+    setLoading(true);
     try {
+      const signInMethods = await fetchSignInMethodsForEmail(
+        auth,
+        emailForPassReset
+      );
+      if (signInMethods.length === 0) {
+        toast.error("Email does not exist. Please sign up.", {
+          position: "bottom-center",
+        });
+        setLoading(false);
+        return;
+      }
+
+      // If the user exists, send the password reset email
       await sendPasswordResetEmail(auth, emailForPassReset);
       toast.success("Password reset email sent", {
         position: "bottom-center",
       });
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
       toast.error(error.message, { position: "bottom-center" });
       console.error("Error sending password reset email - ", error);
@@ -44,12 +72,28 @@ const ForgetPass = () => {
           />
           <button
             type="submit"
-            className={`border border-black bg-blue-400 rounded-lg p-2 mt-4 mx-auto w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`border border-black bg-blue-400 rounded-lg p-2 mt-4 mx-auto w-full ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             disabled={loading}
           >
-            {loading ? 'Sending...' : 'Send Email'}
+            {loading ? "Sending..." : "Send Email"}
           </button>
         </form>
+
+        {/* === Don't have an account ===  */}
+        <p className="text-sm mt-4 mb-2 w-full pl-5">
+          Don't have an account?{" "}
+          <span
+            onClick={() => navigate("/signup")}
+            className="text-blue-500 cursor-pointer"
+          >
+            Sign Up
+          </span>
+        </p>
+
+        {/* === Google ===  */}
+        <SignInwithGoogle />
       </div>
     </section>
   );

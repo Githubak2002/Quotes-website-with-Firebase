@@ -37,6 +37,7 @@ const ForgetPass = () => {
       if (signInMethods.length === 0) {
         toast.error("Email does not exist. Please sign up.", {
           position: "bottom-center",
+          className:"text-xs"
         });
         setLoading(false);
         return;
@@ -82,7 +83,7 @@ const ForgetPass = () => {
         </form>
 
         {/* === Don't have an account ===  */}
-        <p className="text-sm mt-4 mb-2 w-full pl-5">
+        <p className="text-xs mt-4 mb-2">
           Don't have an account?{" "}
           <span
             onClick={() => navigate("/signup")}

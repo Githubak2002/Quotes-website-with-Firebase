@@ -1,25 +1,12 @@
-import {
-  fetchSignInMethodsForEmail,
-  getAuth,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import {  sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import { db } from "../services/firebase.js";
-import {
-  collection,
-  getDoc,
-  getFirestore,
-  limit,
-  query,
-  where,
-} from "firebase/firestore";
+import { db,auth } from "../services/firebase.js";
 import SignInwithGoogle from "../components/SignInwithGoogle.jsx";
 
 const ForgetPass = () => {
-  const auth = getAuth();
   const navigate = useNavigate();
 
   const [emailForPassReset, setEmailForPassReset] = useState("");
@@ -63,7 +50,6 @@ const ForgetPass = () => {
   };
   */
 
-
   const handleForgetPass = async (e) => {
     e.preventDefault();
 
@@ -81,10 +67,7 @@ const ForgetPass = () => {
       setLoading(false);
     }
   };
-
-
-
-
+  
   return (
     <section className="mx-auto px-4 flexCenter">
       <div className="sm:min-w-[340px] min-w-full shadow-2xl py-6 px-10 border-2 border-gray-300 mt-[15vh] rounded-xl font-bold text-sm flexCenter flex-col gap-y-3">
@@ -123,6 +106,12 @@ const ForgetPass = () => {
 
         {/* === Google ===  */}
         <SignInwithGoogle />
+
+        <button
+          onClick={() => checkEmailAndNavigate(emailForPassReset)}
+        >
+          Email exists
+        </button>
       </div>
     </section>
   );

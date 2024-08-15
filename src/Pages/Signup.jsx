@@ -16,11 +16,12 @@ function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when starting the sign-up process
-
+    setLoading(true);
+  
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+  
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
@@ -28,14 +29,22 @@ function SignUp() {
           favQuotes: quotes,
           photo: "",
         });
+  
         toast.success("User Registered Successfully!!", { position: "bottom-center", className: "text-xs" });
         navigate("/profile");
       }
     } catch (error) {
-      toast.error(error.message, { position: "bottom-center", className: "text-xs" });
-      console.error("Error in handleSignUp:", error.message);
+      // console.error("Error in handleSignUp:", error);
+  
+      if (error.code === "auth/email-already-in-use") {
+        toast.error("Email already exists. Please use a different email.", { position: "bottom-center", className: "text-xs" });
+      } else if (error.code === "auth/weak-password") {
+        toast.error("Password should be at least 6 characters ", { position: "bottom-center", className: "text-xs" });
+      } else {
+        toast.error(error.message, { position: "bottom-center", className: "text-xs" });
+      }
     } finally {
-      setLoading(false); // Reset loading to false once the process is complete
+      setLoading(false);
     }
   };
 

@@ -25,7 +25,6 @@ function Login() {
     } catch (error) {
       toast.error(error.message, { position: "bottom-center", className: "text-xs" });
       // console.error("Login error:", error.message);
-      // console.error("Login error:", error);
     } finally {
       setLoading(false);
     }
